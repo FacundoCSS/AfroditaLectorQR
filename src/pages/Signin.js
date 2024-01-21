@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast'
 import { useAuth } from "../context/AuthContext";
 
-import image from './afrodita.png'
+import image from './cataleya2.jpeg'
 
 import {VscError} from 'react-icons/vsc'
 

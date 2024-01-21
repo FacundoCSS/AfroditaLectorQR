@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import jsQR from 'jsqr';
 import {AiOutlineCamera} from 'react-icons/ai'
 
@@ -6,6 +7,8 @@ function QRCodeScanner() {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const [scanning, setScanning] = useState(false);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         if(scanning){
@@ -37,7 +40,8 @@ function QRCodeScanner() {
                     });
     
                     if (code) {
-                        window.location.href = code.data;
+                        navigate(code.data)
+                        // window.location.href = code.data;
                         videoElement.pause();
                         videoElement.srcObject.getTracks().forEach(track => track.stop());
                     } else {
